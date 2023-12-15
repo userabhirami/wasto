@@ -26,12 +26,28 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorConstant.white,
-      body: Center(
-          child: Container(
-        height: 300,
-        width: 300,
-        child: Image.asset(ImageConstant.splashlogo),
-      )),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Center(
+            child: SizedBox(
+              child: Text(
+                "Wasto",
+                style: TextStyle(
+                  color: ColorConstant.green,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+            ),
+          ),
+          Container(
+            height: 300,
+            width: 300,
+            child: Image.asset(ImageConstant.splashlogo),
+          ),
+        ],
+      ),
     );
   }
 }

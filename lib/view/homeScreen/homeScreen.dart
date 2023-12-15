@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int selectedIndex = 0;
+  final List<String> items = List<String>.generate(10, (i) => '$i');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,12 +110,12 @@ class HomeScreen extends StatelessWidget {
                 Container(
                     height: 50,
                     width: 50,
-                    child: Image.asset("assets/images/reviews.png")),
+                    child: Image.asset("assets/images/analysis.png")),
                 SizedBox(
                   width: 10,
                 ),
                 Text(
-                  "Reviews",
+                  "Analysis",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -121,12 +129,12 @@ class HomeScreen extends StatelessWidget {
                 Container(
                     height: 50,
                     width: 50,
-                    child: Image.asset("assets/images/analysis.png")),
+                    child: Image.asset("assets/images/reviews.png")),
                 SizedBox(
                   width: 10,
                 ),
                 Text(
-                  "Analysis",
+                  "Reviews",
                   style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -143,13 +151,93 @@ class HomeScreen extends StatelessWidget {
         titleTextStyle: TextStyle(
           color: ColorConstant.white,
           fontWeight: FontWeight.bold,
-          fontSize: 30,
+          fontSize: 25,
         ),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.logout))],
+        actions: [
+          IconButton(
+              onPressed: () {
+                showDialog(
+                    context: context,
+                    builder: (context) => AlertDialog(
+                          title: Text("Exit Information"),
+                          content: Text("Do you want to exit?"),
+                          actions: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                OutlinedButton(
+                                    onPressed: () {
+                                      SystemNavigator.pop();
+                                    },
+                                    child: Text("No")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                OutlinedButton(
+                                    onPressed: () {
+                                      SystemNavigator.pop();
+                                    },
+                                    child: Text("Yes")),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            )
+                          ],
+                        ));
+              },
+              icon: Icon(Icons.logout))
+        ],
       ),
-      body: Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView.separated(
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              shape: RoundedRectangleBorder(
+                side: BorderSide(width: 2, color: Colors.green),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              leading: CircleAvatar(
+                backgroundColor: const Color(0xff6ae792),
+                child: Text(
+                  items[index + 1],
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+              title: Text(
+                'Location:',
+              ),
+              subtitle: Text('Quantity:'),
+              trailing: Icon(Icons.arrow_forward),
+            );
+          },
+          separatorBuilder: (context, index) {
+            return SizedBox(height: 10);
+          },
+        ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.green,
+          currentIndex: selectedIndex,
+          type: BottomNavigationBarType.fixed,
+          onTap: (index) {
+            selectedIndex = index;
+            setState(() {});
+          },
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.history),
+                label: "Request"), //shown all requests
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search), label: "Search"), //search
+            //transportation
+            BottomNavigationBarItem(
+                icon: Icon(Icons.location_on), label: "Location"), //location
+            BottomNavigationBarItem(
+                icon: Icon(Icons.help), label: "Help"), //help
+          ]),
     );
   }
 }
