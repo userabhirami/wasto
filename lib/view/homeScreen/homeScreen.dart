@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
+import 'package:wasto/view/requestScreen/requestViewPage.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -210,7 +211,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 'Location:',
               ),
               subtitle: Text('Quantity:'),
-              trailing: Icon(Icons.arrow_forward),
+              trailing: IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RequestViewPage(),
+                        ));
+                  },
+                  icon: Icon(Icons.arrow_forward)),
             );
           },
           separatorBuilder: (context, index) {
@@ -232,7 +241,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: "Request"), //shown all requests
             BottomNavigationBarItem(
                 icon: Icon(Icons.search), label: "Search"), //search
-            //transportation
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_on), label: "Location"), //location
             BottomNavigationBarItem(
