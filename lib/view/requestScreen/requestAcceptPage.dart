@@ -14,138 +14,175 @@ class RequestAcceptPage extends StatelessWidget {
         titleTextStyle: TextStyle(
           color: ColorConstant.white,
           fontWeight: FontWeight.bold,
-          fontSize: 25,
+          fontSize: 20,
         ),
       ),
       body: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Name: "),
-              ),
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("value"),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Name: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("value"),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Mobile Number: "),
-              ),
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("value"),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Mobile Number: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("value"),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Quantity: "),
-              ),
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("value"),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Quantity: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("value"),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Waste Type: "),
-              ),
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("value"),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Waste Type: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("value"),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Location: "),
-              ),
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("value"),
-              )
-            ],
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Location: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("value"),
+                )
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Waste Master Name & Mobile Number: "),
-              ),
-              Container(
-                height: 20,
-                width: 100,
-                child: Text("drop down button"),
-              )
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
 
-              // add drop down button
-            ],
+                  child: Text("Waste Master Name & Mobile Number: "),
+                ),
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Date: "),
-              ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 20,
+                  width: 200,
+                  child: Text("drop down button"),
+                )
 
-              Container(
-                height: 20,
-                width: 100,
-                child: Text("date picker"),
-              )
-              //add date picker
-            ],
+                // add drop down button
+              ],
+            ),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(
-                height: 50,
-                width: 100,
-                child: Text("Time: "),
-              ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Date: "),
+                ),
 
-              Container(
-                height: 20,
-                width: 100,
-                child: Text("time picker"),
-              )
-              //add time picker
-            ],
+                Container(
+                  height: 20,
+                  width: 100,
+                  child: Text("date picker"),
+                )
+                //add date picker
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Time: "),
+                ),
+
+                Container(
+                  height: 20,
+                  width: 100,
+                  child: Text("time picker"),
+                )
+                //add time picker
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 30,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
                   onPressed: () {

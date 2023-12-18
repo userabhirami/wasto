@@ -19,103 +19,124 @@ class RequestViewPage extends StatelessWidget {
         ),
       ),
       body: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("Name: "),
-            ),
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("value"),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                //   height: 50,
+                //  width: 100,
+                child: Text("Name: "),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("value"),
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("Mobile Number: "),
-            ),
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("value"),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("Mobile Number: "),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("value"),
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("Quantity: "),
-            ),
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("value"),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("Quantity: "),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("value"),
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("Waste Type: "),
-            ),
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("value"),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("Waste Type: "),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("value"),
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("Location: "),
-            ),
-            SizedBox(
-              height: 50,
-              width: 100,
-              child: Text("value"),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("Location: "),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text("value"),
+              )
+            ],
+          ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RequestAcceptPage(),
-                      ));
-                },
-                child: Text("Accept")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => RequestRejectPage(),
-                      ));
-                },
-                child: Text("Reject")),
-          ],
+        SizedBox(
+          height: 20,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(30),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RequestAcceptPage(),
+                        ));
+                  },
+                  child: Text("Accept")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RequestRejectPage(),
+                        ));
+                  },
+                  child: Text("Reject")),
+            ],
+          ),
         ),
       ]),
     );
