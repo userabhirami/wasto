@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
+import 'package:wasto/view/registrationPage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(Duration(seconds: 3), () {
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => RegisterScreen()));
     });
     super.initState();
   }
