@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "790435103389",
+    "project_id": "wasto-4d315",
+    "storage_bucket": "wasto-4d315.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790435103389:android:31aa9f70ea4f71db0f8a74",
+        "android_client_info": {
+          "package_name": "com.example.wasto"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADy3y87E1-7FZJ67gKaswu16s35bSwqKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

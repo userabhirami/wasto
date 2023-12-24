@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
+import 'package:wasto/view/loginPage.dart';
 import 'package:wasto/view/requestScreen/requestViewPage.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -168,7 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               children: [
                                 OutlinedButton(
                                     onPressed: () {
-                                      SystemNavigator.pop();
+                                      Navigator.pop(context);
                                     },
                                     child: Text("No")),
                                 SizedBox(
@@ -176,7 +177,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 OutlinedButton(
                                     onPressed: () {
-                                      SystemNavigator.pop();
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginScreen(),
+                                          ));
                                     },
                                     child: Text("Yes")),
                                 SizedBox(
