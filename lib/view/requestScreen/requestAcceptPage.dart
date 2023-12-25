@@ -2,9 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 
-class RequestAcceptPage extends StatelessWidget {
-  const RequestAcceptPage({super.key});
+class RequestAcceptPage extends StatefulWidget {
+  const RequestAcceptPage(
+      {super.key,
+      required this.name,
+      required this.mobileNumber,
+      required this.quantity,
+      required this.wasteType,
+      required this.location});
 
+  final String name;
+  final String mobileNumber;
+  final String wasteType;
+  final String location;
+  final String quantity;
+
+  @override
+  State<RequestAcceptPage> createState() => _RequestAcceptPageState();
+}
+
+class _RequestAcceptPageState extends State<RequestAcceptPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +49,7 @@ class RequestAcceptPage extends StatelessWidget {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("value"),
+                  child: Text(widget.name),
                 )
               ],
             ),
@@ -50,7 +67,7 @@ class RequestAcceptPage extends StatelessWidget {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("value"),
+                  child: Text(widget.mobileNumber),
                 )
               ],
             ),
@@ -68,7 +85,7 @@ class RequestAcceptPage extends StatelessWidget {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("value"),
+                  child: Text(widget.quantity),
                 )
               ],
             ),
@@ -86,7 +103,7 @@ class RequestAcceptPage extends StatelessWidget {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("value"),
+                  child: Text(widget.wasteType),
                 )
               ],
             ),
@@ -104,7 +121,7 @@ class RequestAcceptPage extends StatelessWidget {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("value"),
+                  child: Text(widget.location),
                 )
               ],
             ),
@@ -118,8 +135,15 @@ class RequestAcceptPage extends StatelessWidget {
                   // height: 50,
                   // width: 100,
 
-                  child: Text("Waste Master Name & Mobile Number: "),
+                  child: Text("Waste Master Name : "),
                 ),
+                Container(
+                  height: 20,
+                  width: 200,
+                  child: Text("drop down button"),
+                )
+
+                // add drop down button
               ],
             ),
           ),
@@ -128,13 +152,16 @@ class RequestAcceptPage extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  height: 20,
-                  width: 200,
-                  child: Text("drop down button"),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text("Mobile Number: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(widget.location),
                 )
-
-                // add drop down button
               ],
             ),
           ),

@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/registrationPage.dart';
@@ -38,6 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               TextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: "* Required"),
+                  EmailValidator(errorText: "Enter valid email id"),
+                ]),
                 controller: emailAddress,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
@@ -47,6 +52,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               TextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: "* Required"),
+                  MinLengthValidator(6,
+                      errorText: "Password should be atleast 6 characters"),
+                  MaxLengthValidator(15,
+                      errorText:
+                          "Password should not be greater than 15 characters")
+                ]),
+                //validatePassword,
+                obscureText: true,
                 controller: password,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -78,22 +93,38 @@ class _LoginScreenState extends State<LoginScreen> {
                               email: emailAddress.text,
                               password: password.text);
                       print(credential.user?.uid);
-                      if (credential.user?.uid != null) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => HomeScreen(),
-                            ));
+                      if (emailAddress.text.isNotEmpty &&
+                          password.text.isNotEmpty) {
+                        if (credential.user?.uid != null) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeScreen(),
+                              ));
+                        }
                       }
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'user-not-found') {
-                        print('No user found for that email.');
+                        // print('No user found for that email.');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: ColorConstant.green,
+                            content: Text("No user found for that email."),
+                          ),
+                        );
                       } else if (e.code == 'wrong-password') {
-                        print('Wrong password provided for that user.');
+                        // print('Wrong password provided for that user.');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: ColorConstant.green,
+                            content:
+                                Text("Wrong password provided for that user."),
+                          ),
+                        );
                       }
                     }
 
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomeScreen(),
@@ -111,7 +142,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => RegisterScreen(),

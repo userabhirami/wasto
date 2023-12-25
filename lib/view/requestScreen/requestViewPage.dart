@@ -3,9 +3,26 @@ import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/requestScreen/requestAcceptPage.dart';
 import 'package:wasto/view/requestScreen/requestRejectPage.dart';
 
-class RequestViewPage extends StatelessWidget {
-  const RequestViewPage({super.key});
+class RequestViewPage extends StatefulWidget {
+  RequestViewPage(
+      {super.key,
+      required this.name,
+      required this.mobileNumber,
+      required this.quantity,
+      required this.wasteType,
+      required this.location});
 
+  final String name;
+  final String mobileNumber;
+  final String wasteType;
+  final String location;
+  final String quantity;
+
+  @override
+  State<RequestViewPage> createState() => _RequestViewPageState();
+}
+
+class _RequestViewPageState extends State<RequestViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +49,7 @@ class RequestViewPage extends StatelessWidget {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("value"),
+                child: Text(widget.name),
               )
             ],
           ),
@@ -50,7 +67,7 @@ class RequestViewPage extends StatelessWidget {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("value"),
+                child: Text(widget.mobileNumber),
               )
             ],
           ),
@@ -68,7 +85,7 @@ class RequestViewPage extends StatelessWidget {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("value"),
+                child: Text(widget.quantity),
               )
             ],
           ),
@@ -86,7 +103,7 @@ class RequestViewPage extends StatelessWidget {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("value"),
+                child: Text(widget.wasteType),
               )
             ],
           ),
@@ -104,7 +121,7 @@ class RequestViewPage extends StatelessWidget {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("value"),
+                child: Text(widget.location),
               )
             ],
           ),
@@ -122,7 +139,12 @@ class RequestViewPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => RequestAcceptPage(),
+                          builder: (context) => RequestAcceptPage(
+                              name: widget.name,
+                              mobileNumber: widget.mobileNumber,
+                              location: widget.location,
+                              quantity: widget.quantity,
+                              wasteType: widget.wasteType),
                         ));
                   },
                   child: Text("Accept")),

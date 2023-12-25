@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/loginPage.dart';
 
@@ -37,6 +38,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               TextFormField(
+                  validator: MultiValidator([
+                    RequiredValidator(errorText: "* Required"),
+                    EmailValidator(errorText: "Enter valid email id"),
+                  ]),
                   controller: emailAddress,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -45,6 +50,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     prefixIcon: Icon(color: ColorConstant.green, Icons.email),
                   )),
               TextFormField(
+                validator: MultiValidator([
+                  RequiredValidator(errorText: "* Required"),
+                  MinLengthValidator(6,
+                      errorText: "Password should be atleast 6 characters"),
+                  MaxLengthValidator(15,
+                      errorText:
+                          "Password should not be greater than 15 characters")
+                ]),
+                //validatePassword,   ,
+                obscureText: true,
                 controller: password,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),
@@ -80,18 +95,35 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         password: password.text,
                       );
                       print(credential.user?.uid);
-                      if (credential.user?.uid != null) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ));
+                      if (emailAddress.text.isNotEmpty &&
+                          password.text.isNotEmpty) {
+                        if (credential.user?.uid != null) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => LoginScreen(),
+                              ));
+                        }
                       }
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'weak-password') {
-                        print('The password provided is too weak.');
+                        // print('The password provided is too weak.');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: ColorConstant.green,
+                            content: Text(
+                                "The password should be atleast 6 characters"),
+                          ),
+                        );
                       } else if (e.code == 'email-already-in-use') {
-                        print('The account already exists for that email.');
+                        // print('The account already exists for that email.');
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: ColorConstant.green,
+                            content: Text(
+                                "The account already exists for that email."),
+                          ),
+                        );
                       }
                     } catch (e) {
                       print(e);
@@ -100,7 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   child: Text("Sign Up")),
               InkWell(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => LoginScreen(),

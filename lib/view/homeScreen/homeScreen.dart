@@ -1,3 +1,6 @@
+import 'dart:html';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wasto/utils/colorConstant.dart';
@@ -15,6 +18,9 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   final List<String> items = List<String>.generate(10, (i) => '$i');
+  CollectionReference customerRequests =
+      FirebaseFirestore.instance.collection('customers');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -196,42 +202,62 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: ListView.separated(
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              shape: RoundedRectangleBorder(
-                side: BorderSide(width: 2, color: Colors.green),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              leading: CircleAvatar(
-                backgroundColor: const Color(0xff6ae792),
-                child: Text(
-                  items[index + 1],
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-              title: Text(
-                'Location:',
-              ),
-              subtitle: Text('Quantity:'),
-              trailing: IconButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => RequestViewPage(),
-                        ));
+          padding: const EdgeInsets.all(20),
+          child: StreamBuilder(
+            stream: customerRequests.snapshots(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return ListView.separated(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (context, index) {
+                    DocumentSnapshot requests = snapshot.data!.docs[index];
+                    return ListTile(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(width: 2, color: Colors.green),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      leading: CircleAvatar(
+                        backgroundColor: const Color(0xff6ae792),
+                        child: Text(
+                          items[index + 1],
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ),
+                      title: Text("${requests['location']}"),
+                      subtitle: Text("${requests['quantity']}"),
+                      trailing: IconButton(
+                          onPressed: () {
+                            /* var selectedIndex = FirebaseFirestore.instance
+                                .collection('customers')
+                                .doc().id;*/
+                            // print("selecteed index = ${snapshot.data!.docs}");
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => RequestViewPage(
+                                      name: requests['name'],
+                                      mobileNumber: requests['mobileNumber'],
+                                      wasteType: requests['wasteType'],
+                                      location: requests['location'],
+                                      quantity: requests['quantity']),
+                                ));
+                            print(requests['location']);
+                            print(requests['quantity']);
+                          },
+                          icon: Icon(Icons.arrow_forward)),
+                    );
                   },
-                  icon: Icon(Icons.arrow_forward)),
-            );
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 10);
-          },
-        ),
-      ),
+                  separatorBuilder: (context, index) {
+                    return SizedBox(height: 10);
+                  },
+                );
+              } else {
+                return Center(
+                  child: Text("no data found"),
+                );
+              }
+            },
+          )),
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.green,
           currentIndex: selectedIndex,
