@@ -153,7 +153,12 @@ class _RequestViewPageState extends State<RequestViewPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => RequestRejectPage(),
+                          builder: (context) => RequestRejectPage(
+                              name: widget.name,
+                              mobileNumber: widget.mobileNumber,
+                              location: widget.location,
+                              quantity: widget.quantity,
+                              wasteType: widget.wasteType),
                         ));
                   },
                   child: Text("Reject")),

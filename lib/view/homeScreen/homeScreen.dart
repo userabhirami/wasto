@@ -241,8 +241,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       location: requests['location'],
                                       quantity: requests['quantity']),
                                 ));
-                            print(requests['location']);
-                            print(requests['quantity']);
                           },
                           icon: Icon(Icons.arrow_forward)),
                     );
