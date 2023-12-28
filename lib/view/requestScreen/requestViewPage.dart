@@ -44,12 +44,24 @@ class _RequestViewPageState extends State<RequestViewPage> {
               SizedBox(
                 //   height: 50,
                 //  width: 100,
-                child: Text("Name: "),
+                child: Text(
+                  "Name: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               ),
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text(widget.name),
+                child: Text(
+                  widget.name,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               )
             ],
           ),
@@ -62,12 +74,24 @@ class _RequestViewPageState extends State<RequestViewPage> {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("Mobile Number: "),
+                child: Text(
+                  "Mobile Number: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               ),
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text(widget.mobileNumber),
+                child: Text(
+                  widget.mobileNumber,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               )
             ],
           ),
@@ -80,12 +104,24 @@ class _RequestViewPageState extends State<RequestViewPage> {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("Quantity: "),
+                child: Text(
+                  "Quantity: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               ),
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text(widget.quantity),
+                child: Text(
+                  widget.quantity,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               )
             ],
           ),
@@ -98,12 +134,24 @@ class _RequestViewPageState extends State<RequestViewPage> {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("Waste Type: "),
+                child: Text(
+                  "Waste Type: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               ),
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text(widget.wasteType),
+                child: Text(
+                  widget.wasteType,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               )
             ],
           ),
@@ -116,12 +164,24 @@ class _RequestViewPageState extends State<RequestViewPage> {
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text("Location: "),
+                child: Text(
+                  "Location: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               ),
               SizedBox(
                 // height: 50,
                 // width: 100,
-                child: Text(widget.location),
+                child: Text(
+                  widget.location,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
               )
             ],
           ),
@@ -135,6 +195,13 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: ColorConstant.white),
+                  ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -147,8 +214,21 @@ class _RequestViewPageState extends State<RequestViewPage> {
                               wasteType: widget.wasteType),
                         ));
                   },
-                  child: Text("Accept")),
+                  child: Text(
+                    "Accept",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )),
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: ColorConstant.white),
+                  ),
                   onPressed: () {
                     Navigator.push(
                         context,
@@ -161,7 +241,13 @@ class _RequestViewPageState extends State<RequestViewPage> {
                               wasteType: widget.wasteType),
                         ));
                   },
-                  child: Text("Reject")),
+                  child: Text(
+                    "Reject",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )),
             ],
           ),
         ),

@@ -95,15 +95,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         password: password.text,
                       );
                       print(credential.user?.uid);
-                      if (emailAddress.text.isNotEmpty &&
-                          password.text.isNotEmpty) {
-                        if (credential.user?.uid != null) {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => LoginScreen(),
-                              ));
-                        }
+
+                      if (credential.user?.uid != null) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ));
                       }
                     } on FirebaseAuthException catch (e) {
                       if (e.code == 'weak-password') {
@@ -112,7 +110,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           SnackBar(
                             backgroundColor: ColorConstant.green,
                             content: Text(
-                                "The password should be atleast 6 characters"),
+                              "The password should be atleast 6 characters",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
                           ),
                         );
                       } else if (e.code == 'email-already-in-use') {
@@ -121,7 +124,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           SnackBar(
                             backgroundColor: ColorConstant.green,
                             content: Text(
-                                "The account already exists for that email."),
+                              "The account already exists for that email.",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
                           ),
                         );
                       }
@@ -129,7 +137,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       print(e);
                     }
                   },
-                  child: Text("Sign Up")),
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )),
               InkWell(
                 onTap: () {
                   Navigator.pushReplacement(

@@ -56,12 +56,24 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Name: "),
+                  child: Text(
+                    "Name: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text(widget.name),
+                  child: Text(
+                    widget.name,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 )
               ],
             ),
@@ -74,12 +86,24 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Mobile Number: "),
+                  child: Text(
+                    "Mobile Number: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text(widget.mobileNumber),
+                  child: Text(
+                    widget.mobileNumber,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 )
               ],
             ),
@@ -92,12 +116,24 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Quantity: "),
+                  child: Text(
+                    "Quantity: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text(widget.quantity),
+                  child: Text(
+                    widget.quantity,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 )
               ],
             ),
@@ -110,12 +146,24 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Waste Type: "),
+                  child: Text(
+                    "Waste Type: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text(widget.wasteType),
+                  child: Text(
+                    widget.wasteType,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 )
               ],
             ),
@@ -128,12 +176,24 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Location: "),
+                  child: Text(
+                    "Location: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text(widget.location),
+                  child: Text(
+                    widget.location,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 )
               ],
             ),
@@ -147,7 +207,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                     // height: 50,
                     // width: 100,
 
-                    child: Text("Waste Master Name : "),
+                    child: Text(
+                      "Waste Master Name : ",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    ),
                   ),
                   SizedBox(
                     width: 20,
@@ -172,7 +238,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                           items: snapshot.data!.docs.map((value) {
                             return DropdownMenuItem(
                               value: value.get('masterName'),
-                              child: Text('${value.get('masterName')}'),
+                              child: Text(
+                                '${value.get('masterName')}',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 15),
+                              ),
                             );
                           }).toList(),
                           onChanged: (value) {
@@ -201,7 +273,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Mobile Number: "),
+                  child: Text(
+                    "Mobile Number: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -210,7 +288,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   child: TextField(
                     controller: mobileController,
                     decoration: InputDecoration(
-                        hintText: "Enter Mobile No.",
+                        hintText: " Mobile No.",
                         border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10))),
                   ),
@@ -226,7 +304,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Date: "),
+                  child: Text(
+                    "Date: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
                 SizedBox(
                   width: 5,
@@ -261,7 +345,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                         });
                       } else {
                         SnackBar(
-                          content: Text("Select Date"),
+                          content: Text(
+                            "Select Date",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
                         );
                       }
                     },
@@ -278,7 +368,13 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 SizedBox(
                   // height: 50,
                   // width: 100,
-                  child: Text("Time: "),
+                  child: Text(
+                    "Time: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 ),
 
                 Expanded(
@@ -314,32 +410,64 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    textStyle: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                        color: ColorConstant.white),
+                  ),
                   onPressed: () {
-                    requestController.addData(
-                        cusname: widget.name,
-                        cusmob: widget.mobileNumber,
-                        location: widget.location,
-                        quantity: widget.quantity,
-                        wastetype: widget.wasteType,
-                        masname: nameController.text,
-                        masmob: mobileController.text,
-                        date: dateController.text,
-                        time: timeController.text);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        backgroundColor: Colors.green,
-                        content:
-                            Text("Confirmation Message Send Successfully!"),
-                      ),
-                    );
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        ));
-                    //send notification msg to waste master and client
+                    if (nameController.text.isNotEmpty &&
+                        mobileController.text.isNotEmpty &&
+                        dateController.text.isNotEmpty &&
+                        timeController.text.isNotEmpty) {
+                      requestController.addData(
+                          cusname: widget.name,
+                          cusmob: widget.mobileNumber,
+                          location: widget.location,
+                          quantity: widget.quantity,
+                          wastetype: widget.wasteType,
+                          masname: nameController.text,
+                          masmob: mobileController.text,
+                          date: dateController.text,
+                          time: timeController.text);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.green,
+                          content: Text(
+                            "Confirmation Message Send Successfully!",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ),
+                      );
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ));
+                      //send notification msg to waste master and client
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor: Colors.green,
+                          content: Text(
+                            "Fill Master Name, Date and Time field ",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15),
+                          ),
+                        ),
+                      );
+                    }
                   },
-                  child: Text("Send")),
+                  child: Text(
+                    "Send",
+                  )),
             ],
           ),
         ],

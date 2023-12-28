@@ -109,7 +109,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: ColorConstant.green,
-                            content: Text("No user found for that email."),
+                            content: Text(
+                              "No user found for that email.",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
                           ),
                         );
                       } else if (e.code == 'wrong-password') {
@@ -117,8 +123,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             backgroundColor: ColorConstant.green,
-                            content:
-                                Text("Wrong password provided for that user."),
+                            content: Text(
+                              "Wrong password provided for that user.",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 15),
+                            ),
                           ),
                         );
                       }
@@ -130,7 +141,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           builder: (context) => HomeScreen(),
                         ));
                   },
-                  child: Text("Sign In")),
+                  child: Text(
+                    "Sign In",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  )),
               SizedBox(
                 child: Text(
                   "Forgot password?",

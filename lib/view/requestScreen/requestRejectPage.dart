@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasto/controller/requestController.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 
@@ -20,6 +21,8 @@ class RequestRejectPage extends StatefulWidget {
 }
 
 class _RequestRejectPageState extends State<RequestRejectPage> {
+  TextEditingController reasonController = TextEditingController();
+  RequestController requestController = RequestController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,127 +35,217 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
           fontSize: 20,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text("Name: "),
+      body: Column(
+        //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    "Name: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text(widget.name),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text("Mobile Number: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    widget.name,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text(widget.mobileNumber),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text("Quantity: "),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    "Mobile Number: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text(widget.quantity),
-                  )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text("Waste Type: "),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    widget.mobileNumber,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text(widget.wasteType),
-                  )
-                ],
-              ),
+                )
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text("Location: "),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    "Quantity: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
-                  SizedBox(
-                    // height: 50,
-                    // width: 100,
-                    child: Text(widget.location),
-                  )
-                ],
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    widget.quantity,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    "Waste Type: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    widget.wasteType,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    "Location: ",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                ),
+                SizedBox(
+                  // height: 50,
+                  // width: 100,
+                  child: Text(
+                    widget.location,
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          SizedBox(
+            // height: 20,
+            // width: 50,
+            child: Text(
+              "Reason:",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: Container(
+              child: TextField(
+                maxLines: 10,
+                controller: reasonController,
+                decoration: InputDecoration(
+                    // hintText: "Reason",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10))),
               ),
             ),
-            SizedBox(
-              // height: 20,
-              // width: 50,
-              child: Text("Reason:"),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              height: 200,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                border: Border.all(),
-                color: const Color.fromARGB(255, 230, 227, 227),
-              ),
-            ), //reason
-            SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: ElevatedButton(
-                  onPressed: () {
+          ), //reason
+
+          Center(
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15,
+                      color: ColorConstant.white),
+                ),
+                onPressed: () {
+                  if (reasonController.text.isNotEmpty) {
+                    requestController.addData(
+                      cusname: widget.name,
+                      cusmob: widget.mobileNumber,
+                      location: widget.location,
+                      quantity: widget.quantity,
+                      wastetype: widget.wasteType,
+                      reason: reasonController.text,
+                    );
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         backgroundColor: Colors.green,
-                        content: Text("Rejection Message Send Successfully!"),
+                        content: Text(
+                          "Rejection Message Send Successfully!",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
                       ),
                     );
                     Navigator.push(
@@ -160,11 +253,26 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                         MaterialPageRoute(
                           builder: (context) => HomeScreen(),
                         ));
-                  },
-                  child: Text("Send")),
-            )
-          ],
-        ),
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        backgroundColor: Colors.green,
+                        content: Text(
+                          "Please enter reason!",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
+                        ),
+                      ),
+                    );
+                  }
+                },
+                child: Text(
+                  "Send",
+                )),
+          )
+        ],
       ),
     );
   }

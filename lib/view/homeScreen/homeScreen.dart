@@ -1,10 +1,6 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:wasto/utils/colorConstant.dart';
-import 'package:wasto/utils/imageConstant.dart';
 import 'package:wasto/view/loginPage.dart';
 import 'package:wasto/view/requestScreen/requestViewPage.dart';
 
@@ -150,6 +146,69 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ],
             )),
+            ListTile(
+                onTap: () {
+                  showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                            title: Text(
+                              "Exit Information",
+                            ),
+                            content: Text(
+                              "Do you want to exit?",
+                            ),
+                            actions: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  OutlinedButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        "No",
+                                      )),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  OutlinedButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  LoginScreen(),
+                                            ));
+                                      },
+                                      child: Text(
+                                        "Yes",
+                                      )),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                ],
+                              )
+                            ],
+                          ));
+                },
+                title: Row(
+                  children: [
+                    Container(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset("assets/images/logout.png")),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    Text(
+                      "Logout",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    )
+                  ],
+                )),
           ],
         ),
       ),
@@ -161,45 +220,6 @@ class _HomeScreenState extends State<HomeScreen> {
           fontWeight: FontWeight.bold,
           fontSize: 25,
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                          title: Text("Exit Information"),
-                          content: Text("Do you want to exit?"),
-                          actions: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                OutlinedButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text("No")),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                OutlinedButton(
-                                    onPressed: () {
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => LoginScreen(),
-                                          ));
-                                    },
-                                    child: Text("Yes")),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                              ],
-                            )
-                          ],
-                        ));
-              },
-              icon: Icon(Icons.logout))
-        ],
       ),
       body: Padding(
           padding: const EdgeInsets.all(20),
@@ -220,11 +240,26 @@ class _HomeScreenState extends State<HomeScreen> {
                         backgroundColor: const Color(0xff6ae792),
                         child: Text(
                           items[index + 1],
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15),
                         ),
                       ),
-                      title: Text("${requests['location']}"),
-                      subtitle: Text("${requests['quantity']}"),
+                      title: Text(
+                        "${requests['location']}",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
+                      subtitle: Text(
+                        "${requests['quantity']}",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15),
+                      ),
                       trailing: IconButton(
                           onPressed: () {
                             /* var selectedIndex = FirebaseFirestore.instance
@@ -251,12 +286,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 );
               } else {
                 return Center(
-                  child: Text("no data found"),
+                  child: Text(
+                    "no data found",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
+                  ),
                 );
               }
             },
           )),
-      bottomNavigationBar: BottomNavigationBar(
+      /* bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.green,
           currentIndex: selectedIndex,
           type: BottomNavigationBarType.fixed,
@@ -274,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.location_on), label: "Location"), //location
             BottomNavigationBarItem(
                 icon: Icon(Icons.help), label: "Help"), //help
-          ]),
+          ]),*/
     );
   }
 }

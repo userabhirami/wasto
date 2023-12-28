@@ -4,16 +4,18 @@ class RequestController {
   CollectionReference responseCollection =
       FirebaseFirestore.instance.collection('ResponseNotification');
 
-  Future addData(
-      {required String cusname,
-      required String cusmob,
-      required String location,
-      required String quantity,
-      required String wastetype,
-      required String masname,
-      required String masmob,
-      required String date,
-      required String time}) async {
+  Future addData({
+    required String cusname,
+    required String cusmob,
+    required String location,
+    required String quantity,
+    required String wastetype,
+    String masname = "",
+    String masmob = "",
+    String date = "",
+    String time = "",
+    String reason = "",
+  }) async {
     responseCollection.add({
       "customerName": cusname,
       "customerMobile": cusmob,
@@ -23,7 +25,8 @@ class RequestController {
       "masterName": masname,
       "masterMobile": masmob,
       "date": date,
-      "time": time
+      "time": time,
+      "reason": reason
     });
   }
 }
