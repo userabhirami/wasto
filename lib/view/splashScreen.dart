@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
-import 'package:wasto/view/homeScreen/homeScreen.dart';
+
 import 'package:wasto/view/registrationPage.dart';
 
 class SplashScreen extends StatefulWidget {
