@@ -211,7 +211,8 @@ class _RequestViewPageState extends State<RequestViewPage> {
                               mobileNumber: widget.mobileNumber,
                               location: widget.location,
                               quantity: widget.quantity,
-                              wasteType: widget.wasteType),
+                              wasteType: widget.wasteType,
+                              value: "accepted"),
                         ));
                   },
                   child: Text(
@@ -238,7 +239,8 @@ class _RequestViewPageState extends State<RequestViewPage> {
                               mobileNumber: widget.mobileNumber,
                               location: widget.location,
                               quantity: widget.quantity,
-                              wasteType: widget.wasteType),
+                              wasteType: widget.wasteType,
+                              value: "rejected"),
                         ));
                   },
                   child: Text(

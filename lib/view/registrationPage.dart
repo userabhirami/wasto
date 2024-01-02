@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/loginPage.dart';
@@ -43,6 +44,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     EmailValidator(errorText: "Enter valid email id"),
                   ]),
                   controller: emailAddress,
+                  keyboardType: TextInputType.emailAddress,
+                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     // labelText: "Email",
@@ -60,6 +63,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ]),
                 //validatePassword,   ,
                 obscureText: true,
+                keyboardType: TextInputType.visiblePassword,
+                textAlign: TextAlign.center,
                 controller: password,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),

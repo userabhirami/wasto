@@ -15,6 +15,7 @@ class RequestController {
     String date = "",
     String time = "",
     String reason = "",
+    required String value,
   }) async {
     responseCollection.add({
       "customerName": cusname,
@@ -26,7 +27,8 @@ class RequestController {
       "masterMobile": masmob,
       "date": date,
       "time": time,
-      "reason": reason
+      "reason": reason,
+      "value": value
     });
   }
 }

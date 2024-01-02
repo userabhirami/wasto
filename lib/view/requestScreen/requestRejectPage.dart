@@ -10,12 +10,16 @@ class RequestRejectPage extends StatefulWidget {
       required this.mobileNumber,
       required this.wasteType,
       required this.location,
-      required this.quantity});
+      required this.quantity,
+      required this.value});
+
   final String name;
   final String mobileNumber;
   final String wasteType;
   final String location;
   final String quantity;
+  final String value;
+
   @override
   State<RequestRejectPage> createState() => _RequestRejectPageState();
 }
@@ -229,13 +233,13 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                 onPressed: () {
                   if (reasonController.text.isNotEmpty) {
                     requestController.addData(
-                      cusname: widget.name,
-                      cusmob: widget.mobileNumber,
-                      location: widget.location,
-                      quantity: widget.quantity,
-                      wastetype: widget.wasteType,
-                      reason: reasonController.text,
-                    );
+                        cusname: widget.name,
+                        cusmob: widget.mobileNumber,
+                        location: widget.location,
+                        quantity: widget.quantity,
+                        wastetype: widget.wasteType,
+                        reason: reasonController.text,
+                        value: widget.value);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         backgroundColor: Colors.green,

@@ -1,8 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
+import 'package:wasto/view/collectionReport/collectionReport.dart';
 import 'package:wasto/view/loginPage.dart';
 import 'package:wasto/view/requestScreen/requestViewPage.dart';
+import 'package:wasto/view/transportation/transportationDetails.dart';
+import 'package:wasto/view/wasteMaster/wasteMasterDetails.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,17 +54,22 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 )),
             ListTile(
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => CollectionReport(),
+                ));
+              },
               title: Row(
                 children: [
                   Container(
-                      height: 50,
-                      width: 50,
+                      height: 25,
+                      width: 25,
                       child: Image.asset("assets/images/history.png")),
                   SizedBox(
-                    width: 10,
+                    width: 15,
                   ), // plus image
                   Text(
-                    "History",
+                    "Collection Report",
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -71,52 +79,62 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => WasteMasterDetails(),
+                  ));
+                },
                 title: Row(
-              children: [
-                Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset("assets/images/wastemaster.png")),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Waste Master",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            )),
+                  children: [
+                    Container(
+                        height: 25,
+                        width: 25,
+                        child: Image.asset("assets/images/wastemaster.png")),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Waste Master",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    )
+                  ],
+                )),
+            ListTile(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => TransportationDetails(),
+                  ));
+                },
+                title: Row(
+                  children: [
+                    Container(
+                        height: 25,
+                        width: 25,
+                        child: Image.asset("assets/images/transportation.png")),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Transportation",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    )
+                  ],
+                )),
             ListTile(
                 title: Row(
               children: [
                 Container(
-                    height: 50,
-                    width: 50,
-                    child: Image.asset("assets/images/transportation.png")),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Transportation",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            )),
-            ListTile(
-                title: Row(
-              children: [
-                Container(
-                    height: 50,
-                    width: 50,
+                    height: 25,
+                    width: 25,
                     child: Image.asset("assets/images/analysis.png")),
                 SizedBox(
-                  width: 10,
+                  width: 15,
                 ),
                 Text(
                   "Analysis",
@@ -131,11 +149,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: Row(
               children: [
                 Container(
-                    height: 50,
-                    width: 50,
+                    height: 25,
+                    width: 25,
                     child: Image.asset("assets/images/reviews.png")),
                 SizedBox(
-                  width: 10,
+                  width: 15,
                 ),
                 Text(
                   "Reviews",
@@ -194,11 +212,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 title: Row(
                   children: [
                     Container(
-                        height: 50,
-                        width: 50,
+                        height: 25,
+                        width: 25,
                         child: Image.asset("assets/images/logout.png")),
                     SizedBox(
-                      width: 10,
+                      width: 15,
                     ),
                     Text(
                       "Logout",
@@ -297,7 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
           )),
-      /* bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.green,
           currentIndex: selectedIndex,
           type: BottomNavigationBarType.fixed,
@@ -314,8 +332,8 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_on), label: "Location"), //location
             BottomNavigationBarItem(
-                icon: Icon(Icons.help), label: "Help"), //help
-          ]),*/
+                icon: Icon(Icons.help), label: "About"), //help
+          ]),
     );
   }
 }

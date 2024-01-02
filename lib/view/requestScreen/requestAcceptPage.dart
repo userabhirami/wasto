@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:wasto/controller/requestController.dart';
 import 'package:wasto/utils/colorConstant.dart';
@@ -12,13 +13,15 @@ class RequestAcceptPage extends StatefulWidget {
       required this.mobileNumber,
       required this.quantity,
       required this.wasteType,
-      required this.location});
+      required this.location,
+      required this.value});
 
   final String name;
   final String mobileNumber;
   final String wasteType;
   final String location;
   final String quantity;
+  final String value;
 
   @override
   State<RequestAcceptPage> createState() => _RequestAcceptPageState();
@@ -286,6 +289,10 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 ),
                 Expanded(
                   child: TextField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.allow(RegExp('[0-9]'))
+                    ],
                     controller: mobileController,
                     decoration: InputDecoration(
                         hintText: " Mobile No.",
@@ -431,7 +438,8 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                           masname: nameController.text,
                           masmob: mobileController.text,
                           date: dateController.text,
-                          time: timeController.text);
+                          time: timeController.text,
+                          value: widget.value);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           backgroundColor: Colors.green,
