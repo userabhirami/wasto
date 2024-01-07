@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/loginPage.dart';
 
@@ -90,7 +91,28 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () async {
-                    //createUserWithEmailAndPassword
+                    final SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    if (emailAddress.text.trim().isNotEmpty &&
+                        password.text.trim().isNotEmpty) {
+                      await pref.setString("email", emailAddress.text.trim());
+                      await pref.setString("password", password.text.trim());
+
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ));
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor:
+                              const Color.fromARGB(255, 236, 89, 78),
+                          content: Text("Enter a valid username and password!"),
+                        ),
+                      );
+                    }
+                    /*  //createUserWithEmailAndPassword
                     print(emailAddress.text);
                     print(password.text);
                     try {
@@ -140,7 +162,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       }
                     } catch (e) {
                       print(e);
-                    }
+                    } */
                   },
                   child: Text(
                     "Sign Up",

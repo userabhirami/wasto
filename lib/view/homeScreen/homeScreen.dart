@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
+import 'package:wasto/view/Analysis/analysisGraph.dart';
 import 'package:wasto/view/collectionReport/collectionReport.dart';
 import 'package:wasto/view/loginPage.dart';
 import 'package:wasto/view/requestScreen/requestViewPage.dart';
+import 'package:wasto/view/settingsPage/settingPage.dart';
 import 'package:wasto/view/transportation/transportationDetails.dart';
 import 'package:wasto/view/wasteMaster/wasteMasterDetails.dart';
 
@@ -127,43 +129,55 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 )),
             ListTile(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AnalysisPage(),
+                  ));
+                },
                 title: Row(
-              children: [
-                Container(
-                    height: 25,
-                    width: 25,
-                    child: Image.asset("assets/images/analysis.png")),
-                SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  "Analysis",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            )),
+                  children: [
+                    Container(
+                        height: 25,
+                        width: 25,
+                        child: Image.asset("assets/images/analysis.png")),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Analysis",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    )
+                  ],
+                )),
             ListTile(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SettingsPage(),
+                      ));
+                },
                 title: Row(
-              children: [
-                Container(
-                    height: 25,
-                    width: 25,
-                    child: Image.asset("assets/images/reviews.png")),
-                SizedBox(
-                  width: 15,
-                ),
-                Text(
-                  "Reviews",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black),
-                )
-              ],
-            )),
+                  children: [
+                    Container(
+                        height: 25,
+                        width: 25,
+                        child: Image.asset("assets/images/settings.png")),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "Settings",
+                      style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    )
+                  ],
+                )),
             ListTile(
                 onTap: () {
                   showDialog(
@@ -315,7 +329,7 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
           )),
-      bottomNavigationBar: BottomNavigationBar(
+      /* bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.green,
           currentIndex: selectedIndex,
           type: BottomNavigationBarType.fixed,
@@ -333,7 +347,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icon(Icons.location_on), label: "Location"), //location
             BottomNavigationBarItem(
                 icon: Icon(Icons.help), label: "About"), //help
-          ]),
+          ]),*/
     );
   }
 }

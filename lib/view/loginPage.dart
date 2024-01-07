@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/registrationPage.dart';
@@ -87,7 +88,34 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () async {
-                    try {
+                    final SharedPreferences pref =
+                        await SharedPreferences.getInstance();
+                    final String email = pref.getString("email").toString();
+
+                    print(email);
+                    final String pass = pref.getString("password").toString();
+
+                    print(pass);
+
+                    if (emailAddress.text.trim() == email &&
+                        password.text.trim() == pass) {
+                      await pref.setBool("isLogged", true);
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(),
+                        ),
+                      );
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          backgroundColor:
+                              const Color.fromARGB(255, 236, 89, 78),
+                          content: Text("Enter a valid username and password!"),
+                        ),
+                      );
+                    }
+                    /*  try {
                       final credential = await FirebaseAuth.instance
                           .signInWithEmailAndPassword(
                               email: emailAddress.text,
@@ -139,7 +167,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomeScreen(),
-                        ));
+                        )); */
                   },
                   child: Text(
                     "Sign In",
@@ -148,7 +176,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   )),
-              SizedBox(
+              /* SizedBox(
                 child: Text(
                   "Forgot password?",
                   style: TextStyle(
@@ -156,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 15,
                       color: ColorConstant.green),
                 ),
-              ),
+              ), */
               InkWell(
                 onTap: () {
                   Navigator.pushReplacement(
