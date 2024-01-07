@@ -46,7 +46,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ]),
                   controller: emailAddress,
                   keyboardType: TextInputType.emailAddress,
-                  textAlign: TextAlign.center,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     // labelText: "Email",
@@ -65,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 //validatePassword,   ,
                 obscureText: true,
                 keyboardType: TextInputType.visiblePassword,
-                textAlign: TextAlign.center,
+
                 controller: password,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),

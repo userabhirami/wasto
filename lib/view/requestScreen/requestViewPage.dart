@@ -10,13 +10,15 @@ class RequestViewPage extends StatefulWidget {
       required this.mobileNumber,
       required this.quantity,
       required this.wasteType,
-      required this.location});
+      required this.location,
+      required this.date});
 
   final String name;
   final String mobileNumber;
   final String wasteType;
   final String location;
   final String quantity;
+  final String date;
 
   @override
   State<RequestViewPage> createState() => _RequestViewPageState();
@@ -177,6 +179,36 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 // width: 100,
                 child: Text(
                   widget.location,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+              )
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text(
+                  "Date: ",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
+                ),
+              ),
+              SizedBox(
+                // height: 50,
+                // width: 100,
+                child: Text(
+                  widget.date,
                   style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,

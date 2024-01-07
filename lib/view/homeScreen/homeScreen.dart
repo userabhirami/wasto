@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
   final List<String> items = List<String>.generate(10, (i) => '$i');
   CollectionReference customerRequests =
-      FirebaseFirestore.instance.collection('customers');
+      FirebaseFirestore.instance.collection('Users');
 
   @override
   Widget build(BuildContext context) {
@@ -279,14 +279,14 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       title: Text(
-                        "${requests['location']}",
+                        "${requests['Name']}",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                             fontSize: 15),
                       ),
                       subtitle: Text(
-                        "${requests['quantity']}",
+                        "${requests['Quantity']}",
                         style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -302,11 +302,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => RequestViewPage(
-                                      name: requests['name'],
-                                      mobileNumber: requests['mobileNumber'],
-                                      wasteType: requests['wasteType'],
-                                      location: requests['location'],
-                                      quantity: requests['quantity']),
+                                    name: requests['Name'],
+                                    mobileNumber: requests['Phone'],
+                                    wasteType: requests['Type'],
+                                    location: requests['Address'],
+                                    quantity: requests['Quantity'],
+                                    date: requests['Date'],
+                                  ),
                                 ));
                           },
                           icon: Icon(Icons.arrow_forward)),
@@ -346,8 +348,8 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_on), label: "Location"), //location
             BottomNavigationBarItem(
-                icon: Icon(Icons.help), label: "About"), //help
-          ]),*/
+                icon: Icon(Icons.help), label: "Help"), //help
+          ]), */
     );
   }
 }

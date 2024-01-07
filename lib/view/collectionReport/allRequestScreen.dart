@@ -10,7 +10,7 @@ class AllReqScreen extends StatefulWidget {
 
 class _AllReqScreenState extends State<AllReqScreen> {
   CollectionReference customerRequests =
-      FirebaseFirestore.instance.collection('customers');
+      FirebaseFirestore.instance.collection('ResponseNotification');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,43 +26,44 @@ class _AllReqScreenState extends State<AllReqScreen> {
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
                   child: Container(
                     decoration: BoxDecoration(
+                      border: Border.all(color: Colors.green),
                       borderRadius: BorderRadius.circular(20),
-                      color: Colors.greenAccent,
+                      color: Colors.white,
                     ),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SizedBox(height: 10),
                         Text(
-                          "Name : ${requests['name']}",
+                          "Name : ${requests['customerName']}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                         Text(
-                          "Mobile : ${requests['mobileNumber']}",
+                          "Mobile : ${requests['customerMobile']}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                         Text(
-                          "Location : ${requests['quantity']}",
+                          "Location : ${requests['location']}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                         Text(
-                          "Quantity : ${requests['wasteType']}",
+                          "Quantity : ${requests['quantity']}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ),
                         Text(
-                          "Waste Type : ${requests['location']}",
+                          "Waste Type : ${requests['wasteType']}",
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,

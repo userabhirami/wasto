@@ -12,7 +12,7 @@ class WasteMasterDetails extends StatefulWidget {
 
 class _WasteMasterDetailsState extends State<WasteMasterDetails> {
   CollectionReference customerRequests =
-      FirebaseFirestore.instance.collection('wasteMaster');
+      FirebaseFirestore.instance.collection('wastemaster');
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +73,9 @@ class _WasteMasterDetailsState extends State<WasteMasterDetails> {
                           const EdgeInsets.only(left: 25, right: 25, top: 10),
                       child: Container(
                         decoration: BoxDecoration(
+                          border: Border.all(color: Colors.green),
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.greenAccent,
+                          color: Colors.white,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

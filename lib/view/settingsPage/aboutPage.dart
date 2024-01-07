@@ -22,7 +22,7 @@ class AboutScreen extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(10),
                 child: Text(
                   '''We're dedicated to revolutionizing the way you handle waste. 
 Our app is your all-in-one solution for efficient waste disposal, 
@@ -42,6 +42,10 @@ Together, let's transform the way we handle waste, leaving a positive impact on 
 Download the app today and be a part of the movement towards a greener tomorrow.
       ''',
                   textAlign: TextAlign.justify,
+                  style: TextStyle(
+                      fontSize: 18,
+                      // fontWeight: FontWeight.bold,
+                      color: Colors.black),
                 ),
               )
             ],

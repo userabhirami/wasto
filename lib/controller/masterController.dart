@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MasterController {
   CollectionReference masterCollection =
-      FirebaseFirestore.instance.collection('wasteMaster');
+      FirebaseFirestore.instance.collection('wastemaster');
   Future addwasteMaster({
     required String name,
     required String mob,

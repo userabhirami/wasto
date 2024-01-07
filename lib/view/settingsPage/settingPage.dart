@@ -23,6 +23,9 @@ class SettingsPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
+          SizedBox(
+            height: 15,
+          ),
           // Text(
           //   "Theme",
           //   style: TextStyle(fontSize: 16, color: Colors.black),
@@ -47,11 +50,14 @@ class SettingsPage extends StatelessWidget {
             },
             child: Text(
               "About Us",
-              style: TextStyle(fontSize: 18, color: Colors.black),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           InkWell(
             onTap: () {
@@ -63,11 +69,14 @@ class SettingsPage extends StatelessWidget {
             },
             child: Text(
               "Reset your Password",
-              style: TextStyle(fontSize: 18, color: Colors.black),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
           InkWell(
             onTap: () async {
@@ -125,11 +134,14 @@ class SettingsPage extends StatelessWidget {
             },
             child: Text(
               "Delete your Account",
-              style: TextStyle(fontSize: 18, color: Colors.black),
+              style: TextStyle(
+                  fontSize: 18,
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 15,
           ),
         ],
       ),

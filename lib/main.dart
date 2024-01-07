@@ -3,17 +3,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/loginPage.dart';
-import 'package:wasto/view/registrationPage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: "AIzaSyADy3y87E1-7FZJ67gKaswu16s35bSwqKw",
-          appId: "1:790435103389:android:31aa9f70ea4f71db0f8a74",
+          apiKey: "AIzaSyDfesUtkCvO8jIrxvTNYGpXZgnQP6lnmpM",
+          appId: "1:225802149768:android:c68e9dcdfe1dc1b878243d",
           messagingSenderId: "",
-          projectId: "wasto-4d315",
-          storageBucket: "wasto-4d315.appspot.com"));
+          projectId: "project-firebase-8fbd3",
+          storageBucket: "project-firebase-8fbd3.appspot.com"));
   runApp(MyApp());
 }
 

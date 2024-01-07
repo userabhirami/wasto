@@ -72,8 +72,9 @@ class _TransportationDetailsState extends State<TransportationDetails> {
                           const EdgeInsets.only(left: 20, right: 20, top: 10),
                       child: Container(
                         decoration: BoxDecoration(
+                          border: Border.all(color: Colors.green),
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.greenAccent,
+                          color: Colors.white,
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

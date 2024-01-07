@@ -34,7 +34,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
   TextEditingController timeController = TextEditingController();
   RequestController requestController = RequestController();
   //List<String> list = <String>['One', 'Two', 'Three', 'Four'];
-  var wasteMaster;
+  var wasteMaster1;
   var defaultValue = true;
 
   @override
@@ -224,20 +224,20 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   Expanded(
                     child: StreamBuilder<QuerySnapshot>(
                       stream: FirebaseFirestore.instance
-                          .collection('wasteMaster')
+                          .collection('wastemaster')
                           .orderBy('masterName')
                           .snapshots(),
                       builder: (BuildContext context,
                           AsyncSnapshot<QuerySnapshot> snapshot) {
                         if (!snapshot.hasData) return Container();
                         if (defaultValue) {
-                          wasteMaster =
+                          wasteMaster1 =
                               snapshot.data!.docs[0].get('masterName');
-                          print('setDefault make: $wasteMaster');
+                          print('setDefault make: $wasteMaster1');
                         }
                         return DropdownButton(
                           isExpanded: false,
-                          value: wasteMaster,
+                          value: wasteMaster1,
                           items: snapshot.data!.docs.map((value) {
                             return DropdownMenuItem(
                               value: value.get('masterName'),
@@ -255,7 +255,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                               () {
                                 print('selected drop down: $value');
                                 nameController.text = value.toString();
-                                wasteMaster = value;
+                                wasteMaster1 = value;
                                 defaultValue = false;
                               },
                             );
