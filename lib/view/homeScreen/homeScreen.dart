@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/Analysis/analysisGraph.dart';
 import 'package:wasto/view/collectionReport/collectionReport.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
+      endDrawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             ListTile(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (context) => CollectionReport(),
                 ));
               },
@@ -80,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            ListTile(
+            /* ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => WasteMasterDetails(),
@@ -127,10 +128,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           color: Colors.black),
                     )
                   ],
-                )),
+                )), */
             ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => AnalysisPage(),
                   ));
                 },
@@ -154,7 +155,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             ListTile(
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SettingsPage(),
@@ -204,7 +205,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                     width: 10,
                                   ),
                                   OutlinedButton(
-                                      onPressed: () {
+                                      onPressed: () async {
+                                        final SharedPreferences pref =
+                                            await SharedPreferences
+                                                .getInstance();
+                                        await pref.setBool("isLogged", false);
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -298,7 +303,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 .collection('customers')
                                 .doc().id;*/
                             // print("selecteed index = ${snapshot.data!.docs}");
-                            Navigator.push(
+                            Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => RequestViewPage(
@@ -310,6 +315,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                     date: requests['Date'],
                                   ),
                                 ));
+                            snapshot.data!.docs.remove(requests['Name']);
+                            snapshot.data!.docs.remove(requests['Quantity']);
+                            setState(() {});
                           },
                           icon: Icon(Icons.arrow_forward)),
                     );
@@ -331,25 +339,6 @@ class _HomeScreenState extends State<HomeScreen> {
               }
             },
           )),
-      /* bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.green,
-          currentIndex: selectedIndex,
-          type: BottomNavigationBarType.fixed,
-          onTap: (index) {
-            selectedIndex = index;
-            setState(() {});
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.history),
-                label: "Request"), //shown all requests
-            BottomNavigationBarItem(
-                icon: Icon(Icons.search), label: "Search"), //search
-            BottomNavigationBarItem(
-                icon: Icon(Icons.location_on), label: "Location"), //location
-            BottomNavigationBarItem(
-                icon: Icon(Icons.help), label: "Help"), //help
-          ]), */
     );
   }
 }

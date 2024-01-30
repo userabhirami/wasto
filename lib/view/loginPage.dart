@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
+import 'package:wasto/utils/widgets/bottomNavigationBar.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/registrationPage.dart';
 
@@ -102,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
+                          builder: (context) => BottomNavigation(),
                         ),
                       );
                     } else {

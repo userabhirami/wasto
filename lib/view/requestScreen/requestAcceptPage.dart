@@ -338,8 +338,19 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                     onTap: () async {
                       DateTime? pickedDate = await showDatePicker(
                           context: context,
+                          builder: (context, child) {
+                            return Theme(
+                                data: Theme.of(context).copyWith(
+                                  colorScheme: ColorScheme.light(
+                                      primary: Colors.green,
+                                      onPrimary: Colors.red,
+                                      onSurface: Colors.blue),
+                                ),
+                                child: child!);
+                          },
                           initialDate: DateTime.now(),
-                          firstDate: DateTime(2000),
+                          firstDate: DateTime.now()
+                              .subtract(Duration(days: 1)), //change 30,1,0
                           lastDate: DateTime(2101));
 
                       if (pickedDate != null) {
@@ -452,7 +463,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                           ),
                         ),
                       );
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                             builder: (context) => HomeScreen(),

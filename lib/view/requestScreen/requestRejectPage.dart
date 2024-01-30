@@ -252,7 +252,7 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                         ),
                       ),
                     );
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomeScreen(),

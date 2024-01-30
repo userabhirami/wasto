@@ -235,7 +235,7 @@ class _RequestViewPageState extends State<RequestViewPage> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => RequestAcceptPage(
@@ -263,7 +263,7 @@ class _RequestViewPageState extends State<RequestViewPage> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => RequestRejectPage(
