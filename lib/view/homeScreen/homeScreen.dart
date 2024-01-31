@@ -162,7 +162,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             await SharedPreferences
                                                 .getInstance();
                                         await pref.setBool("isLogged", false);
-                                        Navigator.push(
+                                        Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
