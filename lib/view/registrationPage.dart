@@ -1,6 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
@@ -21,7 +19,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: Column(
@@ -97,7 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       await pref.setString("email", emailAddress.text.trim());
                       await pref.setString("password", password.text.trim());
 
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => LoginScreen(),
@@ -111,57 +108,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       );
                     }
-                    /*  //createUserWithEmailAndPassword
-                    print(emailAddress.text);
-                    print(password.text);
-                    try {
-                      final credential = await FirebaseAuth.instance
-                          .createUserWithEmailAndPassword(
-                        email: emailAddress.text,
-                        password: password.text,
-                      );
-                      print(credential.user?.uid);
-
-                      if (credential.user?.uid != null) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => LoginScreen(),
-                            ));
-                      }
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'weak-password') {
-                        // print('The password provided is too weak.');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: ColorConstant.green,
-                            content: Text(
-                              "The password should be atleast 6 characters",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          ),
-                        );
-                      } else if (e.code == 'email-already-in-use') {
-                        // print('The account already exists for that email.');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: ColorConstant.green,
-                            content: Text(
-                              "The account already exists for that email.",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          ),
-                        );
-                      }
-                    } catch (e) {
-                      print(e);
-                    } */
                   },
                   child: Text(
                     "Sign Up",
@@ -172,7 +118,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   )),
               InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => LoginScreen(),

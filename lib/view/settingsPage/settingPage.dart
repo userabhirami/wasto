@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/registrationPage.dart';
-import 'package:wasto/view/settingsPage/aboutPage.dart';
 import 'package:wasto/view/settingsPage/resetPassword.dart';
+import 'package:wasto/view/termsAndConditions/termsAndCondtions.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -26,30 +26,16 @@ class SettingsPage extends StatelessWidget {
           SizedBox(
             height: 15,
           ),
-          // Text(
-          //   "Theme",
-          //   style: TextStyle(fontSize: 16, color: Colors.black),
-          // ),
-          // SizedBox(
-          //   height: 10,
-          // ),
-          // Text(
-          //   "Language",
-          //   style: TextStyle(fontSize: 16, color: Colors.black),
-          // ),
-          // SizedBox(
-          //   height: 10,
-          // ),
           InkWell(
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AboutScreen(),
+                    builder: (context) => TermsAndCondtions(),
                   ));
             },
             child: Text(
-              "About Us",
+              "Terms and Conditions",
               style: TextStyle(
                   fontSize: 18,
                   color: Colors.black,

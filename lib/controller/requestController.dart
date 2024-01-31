@@ -4,6 +4,13 @@ class RequestController {
   CollectionReference responseCollection =
       FirebaseFirestore.instance.collection('ResponseNotification');
 
+  CollectionReference requestCollection =
+      FirebaseFirestore.instance.collection('Users');
+
+  Future deleteData({required String id}) async {
+    requestCollection.doc(id).delete();
+  }
+
   Future addData({
     required String cusname,
     required String cusmob,

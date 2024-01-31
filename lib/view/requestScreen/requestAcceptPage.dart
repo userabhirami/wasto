@@ -33,7 +33,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
   TextEditingController dateController = TextEditingController();
   TextEditingController timeController = TextEditingController();
   RequestController requestController = RequestController();
-  //List<String> list = <String>['One', 'Two', 'Three', 'Four'];
+
   var wasteMaster1;
   var defaultValue = true;
 
@@ -57,8 +57,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Name: ",
                     style: TextStyle(
@@ -68,8 +66,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.name,
                     style: TextStyle(
@@ -87,8 +83,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Mobile Number: ",
                     style: TextStyle(
@@ -98,8 +92,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.mobileNumber,
                     style: TextStyle(
@@ -117,8 +109,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Quantity: ",
                     style: TextStyle(
@@ -128,8 +118,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.quantity,
                     style: TextStyle(
@@ -147,8 +135,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Waste Type: ",
                     style: TextStyle(
@@ -158,8 +144,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.wasteType,
                     style: TextStyle(
@@ -177,8 +161,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Location: ",
                     style: TextStyle(
@@ -188,8 +170,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.location,
                     style: TextStyle(
@@ -207,9 +187,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    // height: 50,
-                    // width: 100,
-
                     child: Text(
                       "Waste Master Name : ",
                       style: TextStyle(
@@ -274,8 +251,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Mobile Number: ",
                     style: TextStyle(
@@ -309,8 +284,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Date: ",
                     style: TextStyle(
@@ -350,7 +323,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                           },
                           initialDate: DateTime.now(),
                           firstDate: DateTime.now()
-                              .subtract(Duration(days: 1)), //change 30,1,0
+                              .subtract(Duration(days: 0)), //change 30,1,0
                           lastDate: DateTime(2101));
 
                       if (pickedDate != null) {
@@ -384,8 +357,6 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Time: ",
                     style: TextStyle(
@@ -463,7 +434,7 @@ class _RequestAcceptPageState extends State<RequestAcceptPage> {
                           ),
                         ),
                       );
-                      Navigator.pushReplacement(
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => HomeScreen(),

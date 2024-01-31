@@ -1,10 +1,7 @@
 import 'dart:async';
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/imageConstant.dart';
-import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/loginPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/widgets/bottomNavigationBar.dart';
@@ -18,20 +15,10 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   @override
-  /* void initState() {
-    Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => RegisterScreen()));
-    });
-    super.initState();
-  } */
   void initState() {
-    //async- its a future function.
     Future.delayed(Duration(seconds: 2)).then((value) async {
-      //then
       final SharedPreferences pref = await SharedPreferences.getInstance();
-      //  final isLogged = await prefs.getBool("isLogged");
-      final isLogged = pref.getBool("isLogged");
+      final isLogged = await pref.getBool("isLogged");
       print(isLogged);
       if (isLogged == true) {
         Navigator.pushReplacement(
@@ -39,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
           MaterialPageRoute(builder: (context) => BottomNavigation()),
         );
       } else {
-        Navigator.push(
+        Navigator.pushReplacement(
             context,
             MaterialPageRoute(
               builder: (context) => LoginScreen(),

@@ -44,8 +44,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                //   height: 50,
-                //  width: 100,
                 child: Text(
                   "Name: ",
                   style: TextStyle(
@@ -55,8 +53,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.name,
                   style: TextStyle(
@@ -74,8 +70,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   "Mobile Number: ",
                   style: TextStyle(
@@ -85,8 +79,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.mobileNumber,
                   style: TextStyle(
@@ -104,8 +96,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   "Quantity: ",
                   style: TextStyle(
@@ -115,8 +105,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.quantity,
                   style: TextStyle(
@@ -134,8 +122,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   "Waste Type: ",
                   style: TextStyle(
@@ -145,8 +131,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.wasteType,
                   style: TextStyle(
@@ -164,8 +148,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   "Location: ",
                   style: TextStyle(
@@ -175,8 +157,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.location,
                   style: TextStyle(
@@ -194,8 +174,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   "Date: ",
                   style: TextStyle(
@@ -205,8 +183,6 @@ class _RequestViewPageState extends State<RequestViewPage> {
                 ),
               ),
               SizedBox(
-                // height: 50,
-                // width: 100,
                 child: Text(
                   widget.date,
                   style: TextStyle(
@@ -235,7 +211,7 @@ class _RequestViewPageState extends State<RequestViewPage> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => RequestAcceptPage(
@@ -263,7 +239,7 @@ class _RequestViewPageState extends State<RequestViewPage> {
                         color: ColorConstant.white),
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => RequestRejectPage(

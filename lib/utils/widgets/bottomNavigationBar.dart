@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasto/view/settingsPage/aboutPage.dart';
 import 'package:wasto/view/termsAndConditions/termsAndCondtions.dart';
 import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/transportation/transportationDetails.dart';
@@ -17,7 +18,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     HomeScreen(),
     WasteMasterDetails(),
     TransportationDetails(),
-    TermsAndCondtions(),
+    AboutScreen(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                 label: "Transportation"), //transportation
             BottomNavigationBarItem(
                 icon: Icon(Icons.help),
-                label: "Terms & Conditions"), //terms and conditions
+                label: "About Us"), //terms and conditions
           ]),
     );
   }

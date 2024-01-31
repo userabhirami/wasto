@@ -40,7 +40,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
         ),
       ),
       body: Column(
-        //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Padding(
             padding: const EdgeInsets.all(10),
@@ -48,8 +47,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Name: ",
                     style: TextStyle(
@@ -59,8 +56,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.name,
                     style: TextStyle(
@@ -78,8 +73,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Mobile Number: ",
                     style: TextStyle(
@@ -89,8 +82,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.mobileNumber,
                     style: TextStyle(
@@ -108,8 +99,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Quantity: ",
                     style: TextStyle(
@@ -119,8 +108,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.quantity,
                     style: TextStyle(
@@ -138,8 +125,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Waste Type: ",
                     style: TextStyle(
@@ -149,8 +134,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.wasteType,
                     style: TextStyle(
@@ -168,8 +151,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     "Location: ",
                     style: TextStyle(
@@ -179,8 +160,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                   ),
                 ),
                 SizedBox(
-                  // height: 50,
-                  // width: 100,
                   child: Text(
                     widget.location,
                     style: TextStyle(
@@ -196,8 +175,6 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
             height: 10,
           ),
           SizedBox(
-            // height: 20,
-            // width: 50,
             child: Text(
               "Reason:",
               style: TextStyle(
@@ -252,7 +229,7 @@ class _RequestRejectPageState extends State<RequestRejectPage> {
                         ),
                       ),
                     );
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomeScreen(),

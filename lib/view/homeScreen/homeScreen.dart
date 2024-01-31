@@ -1,14 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wasto/controller/requestController.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/view/Analysis/analysisGraph.dart';
 import 'package:wasto/view/collectionReport/collectionReport.dart';
 import 'package:wasto/view/loginPage.dart';
 import 'package:wasto/view/requestScreen/requestViewPage.dart';
 import 'package:wasto/view/settingsPage/settingPage.dart';
-import 'package:wasto/view/transportation/transportationDetails.dart';
-import 'package:wasto/view/wasteMaster/wasteMasterDetails.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<String> items = List<String>.generate(10, (i) => '$i');
   CollectionReference customerRequests =
       FirebaseFirestore.instance.collection('Users');
+  RequestController requestController = RequestController();
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             ListTile(
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => CollectionReport(),
                 ));
               },
@@ -81,57 +81,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            /* ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => WasteMasterDetails(),
-                  ));
-                },
-                title: Row(
-                  children: [
-                    Container(
-                        height: 25,
-                        width: 25,
-                        child: Image.asset("assets/images/wastemaster.png")),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      "Waste Master",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    )
-                  ],
-                )),
             ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => TransportationDetails(),
-                  ));
-                },
-                title: Row(
-                  children: [
-                    Container(
-                        height: 25,
-                        width: 25,
-                        child: Image.asset("assets/images/transportation.png")),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      "Transportation",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black),
-                    )
-                  ],
-                )), */
-            ListTile(
-                onTap: () {
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(
                     builder: (context) => AnalysisPage(),
                   ));
                 },
@@ -155,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 )),
             ListTile(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SettingsPage(),
@@ -299,11 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       trailing: IconButton(
                           onPressed: () {
-                            /* var selectedIndex = FirebaseFirestore.instance
-                                .collection('customers')
-                                .doc().id;*/
-                            // print("selecteed index = ${snapshot.data!.docs}");
-                            Navigator.pushReplacement(
+                            Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => RequestViewPage(
@@ -315,7 +263,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     date: requests['Date'],
                                   ),
                                 ));
-                            customerRequests.doc(requests[index]).delete();
+                            requestController.deleteData(id: requests.id);
                             setState(() {});
                           },
                           icon: Icon(Icons.arrow_forward)),

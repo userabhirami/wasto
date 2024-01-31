@@ -47,7 +47,7 @@ class _WasteMasterDetailsState extends State<WasteMasterDetails> {
                         color: ColorConstant.black),
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => AddWasteMaster(),

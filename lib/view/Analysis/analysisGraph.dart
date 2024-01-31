@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:wasto/utils/colorConstant.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
 
 class AnalysisPage extends StatefulWidget {
   const AnalysisPage({super.key});
@@ -11,7 +10,6 @@ class AnalysisPage extends StatefulWidget {
 }
 
 class _AnalysisPageState extends State<AnalysisPage> {
-  // Data for the pie chart
   Map<String, double> dataMap = {
     "House": 60,
     "Panchayat": 15,
@@ -23,20 +21,6 @@ class _AnalysisPageState extends State<AnalysisPage> {
     Color.fromARGB(255, 240, 27, 211),
   ];
 
-  /*final gradientList = <List<Color>>[
-    [
-      Color.fromRGBO(223, 250, 92, 1),
-      Color.fromRGBO(129, 250, 112, 1),
-    ],
-    [
-      Color.fromRGBO(129, 182, 205, 1),
-      Color.fromRGBO(91, 253, 199, 1),
-    ],
-    [
-      Color.fromRGBO(175, 63, 62, 1.0),
-      Color.fromRGBO(254, 154, 92, 1),
-    ]
-  ]; */
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,21 +72,6 @@ class _AnalysisPageState extends State<AnalysisPage> {
               //  gradientList: gradientList,
             ),
           ),
-          /*  SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            child: Text(
-              "Bar Chart",
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            height: 5,
-          ), */
         ],
       ),
     );

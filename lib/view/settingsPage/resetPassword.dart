@@ -74,7 +74,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           Text("Your password changed, Please login again..."),
                     ),
                   );
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => LoginScreen(),

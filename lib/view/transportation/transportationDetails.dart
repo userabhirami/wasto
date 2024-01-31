@@ -46,7 +46,7 @@ class _TransportationDetailsState extends State<TransportationDetails> {
                         color: ColorConstant.black),
                   ),
                   onPressed: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => AddTransportation(),

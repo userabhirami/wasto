@@ -3,7 +3,6 @@ import 'package:form_field_validator/form_field_validator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wasto/utils/colorConstant.dart';
 import 'package:wasto/utils/widgets/bottomNavigationBar.dart';
-import 'package:wasto/view/homeScreen/homeScreen.dart';
 import 'package:wasto/view/registrationPage.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -21,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: Column(
@@ -100,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (emailAddress.text.trim() == email &&
                         password.text.trim() == pass) {
                       await pref.setBool("isLogged", true);
-                      Navigator.pushReplacement(
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) => BottomNavigation(),
@@ -115,59 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       );
                     }
-                    /*  try {
-                      final credential = await FirebaseAuth.instance
-                          .signInWithEmailAndPassword(
-                              email: emailAddress.text,
-                              password: password.text);
-                      print(credential.user?.uid);
-                      if (emailAddress.text.isNotEmpty &&
-                          password.text.isNotEmpty) {
-                        if (credential.user?.uid != null) {
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeScreen(),
-                              ));
-                        }
-                      }
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'user-not-found') {
-                        // print('No user found for that email.');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: ColorConstant.green,
-                            content: Text(
-                              "No user found for that email.",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          ),
-                        );
-                      } else if (e.code == 'wrong-password') {
-                        // print('Wrong password provided for that user.');
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: ColorConstant.green,
-                            content: Text(
-                              "Wrong password provided for that user.",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 15),
-                            ),
-                          ),
-                        );
-                      }
-                    }
-
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomeScreen(),
-                        )); */
                   },
                   child: Text(
                     "Sign In",
@@ -176,18 +121,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.bold,
                         fontSize: 15),
                   )),
-              /* SizedBox(
-                child: Text(
-                  "Forgot password?",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
-                      color: ColorConstant.green),
-                ),
-              ), */
               InkWell(
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => RegisterScreen(),

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:wasto/view/homeScreen/homeScreen.dart';
-import 'package:wasto/view/loginPage.dart';
+import 'package:wasto/utils/widgets/bottomNavigationBar.dart';
+import 'package:wasto/view/splashScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,9 +27,9 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return HomeScreen();
+              return BottomNavigation();
             } else {
-              return LoginScreen();
+              return SplashScreen();
             }
           },
         ));
