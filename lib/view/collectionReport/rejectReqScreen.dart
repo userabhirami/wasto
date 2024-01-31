@@ -26,14 +26,14 @@ class _RejectReqScreenState extends State<RejectReqScreen> {
                 print("value : ${requests['value']}");
                 return Padding(
                   padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.green),
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                    ),
-                    child: value == "rejected"
-                        ? Column(
+                  child: value == "rejected"
+                      ? Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.green),
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                          ),
+                          child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               SizedBox(height: 10),
@@ -81,11 +81,10 @@ class _RejectReqScreenState extends State<RejectReqScreen> {
                               ),
                               SizedBox(height: 10),
                             ],
-                          )
-                        : Container(
-                            color: Colors.white,
-                          ),
-                  ),
+                          ))
+                      : SizedBox(
+                          height: 2,
+                        ),
                 );
               },
               separatorBuilder: (context, index) {

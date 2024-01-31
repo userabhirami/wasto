@@ -24,7 +24,7 @@ if (flutterVersionName == null) {
 }
 
 android {
-    namespace "com.example.wasto"
+    namespace "com.luminar.wasto"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
@@ -43,7 +43,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.wasto"
+        applicationId "com.luminar.wasto"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion flutter.minSdkVersion
@@ -68,7 +68,7 @@ flutter {
 
 dependencies {
      // Import the Firebase BoM
-  implementation platform('com.google.firebase:firebase-bom:32.7.0')
+  implementation platform('com.google.firebase:firebase-bom:32.7.1')
 
 
   // TODO: Add the dependencies for Firebase products you want to use

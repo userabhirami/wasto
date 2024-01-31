@@ -315,8 +315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     date: requests['Date'],
                                   ),
                                 ));
-                            snapshot.data!.docs.remove(requests['Name']);
-                            snapshot.data!.docs.remove(requests['Quantity']);
+                            customerRequests.doc(requests[index]).delete();
                             setState(() {});
                           },
                           icon: Icon(Icons.arrow_forward)),
