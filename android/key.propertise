@@ -1,0 +1,4 @@
+storePassword=wasto123
+keyPassword=<password-from-previous-step>
+keyAlias=upload
+storeFile=C:/Users/ASUS/Desktop/flutter/wasto/key.jks
