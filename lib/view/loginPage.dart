@@ -98,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     if (emailAddress.text.trim() == email &&
                         password.text.trim() == pass) {
                       await pref.setBool("isLogged", true);
-                      Navigator.push(
+                      Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                           builder: (context) => BottomNavigation(),
